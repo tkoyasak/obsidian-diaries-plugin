@@ -1,7 +1,6 @@
 {
   "version": "4",
   "specifiers": {
-    "npm:@types/node@*": "22.5.4",
     "npm:@types/node@^22.10.1": "22.10.1",
     "npm:esbuild@0.24": "0.24.0",
     "npm:obsidian@^1.7.2": "1.7.2_@codemirror+state@6.4.1_@codemirror+view@6.35.0"
@@ -102,13 +101,7 @@
     "@types/node@22.10.1": {
       "integrity": "sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==",
       "dependencies": [
-        "undici-types@6.20.0"
-      ]
-    },
-    "@types/node@22.5.4": {
-      "integrity": "sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==",
-      "dependencies": [
-        "undici-types@6.19.8"
+        "undici-types"
       ]
     },
     "@types/tern@0.23.9": {
@@ -160,9 +153,6 @@
     },
     "style-mod@4.1.2": {
       "integrity": "sha512-wnD1HyVqpJUI2+eKZ+eo1UwghftP6yuFheBqqe+bWCotBjC2K1YnteJILRMs3SM4V/0dLEW1SC27MWP5y+mwmw=="
-    },
-    "undici-types@6.19.8": {
-      "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
     },
     "undici-types@6.20.0": {
       "integrity": "sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg=="

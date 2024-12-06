@@ -15,7 +15,9 @@
     "esbuild": "npm:esbuild@^0.24.0",
     "obsidian": "npm:obsidian@^1.7.2"
   },
-  "nodeModulesDir": "auto",
+  // LSP picks up @types/* package only with "manual" node_modules dir handling
+  // https://github.com/denoland/deno/issues/27215
+  "nodeModulesDir": "manual",
   "tasks": {
     "dev": "deno --allow-env --allow-read --allow-run scripts/esbuild.config.mts",
     "build": "deno --allow-env --allow-read --allow-run scripts/esbuild.config.mts prod"
