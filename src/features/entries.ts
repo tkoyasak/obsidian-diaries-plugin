@@ -1,45 +1,42 @@
-import { type App, moment, normalizePath, Notice } from 'obsidian'
+import { App, moment, normalizePath, Notice } from 'obsidian'
 import { Settings } from '../settings.ts'
 
-export class NewNotes {
+export class Entries {
   constructor(
     private readonly app: App,
     private readonly settings: Settings,
   ) {}
 
-  /**
-   * Create a new note with a unique id.
-   */
-  public async createNewNote(): Promise<void> {
+  public async createNewEntry(): Promise<void> {
     const id = moment().format('YYYYMM')
     const path = normalizePath(`${this.settings.newEntriesFolder}/${id}.md`)
 
     if (this.app.vault.getFileByPath(path)) {
-      new Notice('Error: Generated id collision. Please try again.')
+      new Notice(`Error: the entry for \`${id}\` already exists.`)
       return
     }
 
     const file = await this.app.vault.create(path, entry(id))
+
     const leaf = this.app.workspace.getLeaf()
     await leaf.openFile(file)
   }
 }
 
-const DDD = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'] as const
-
 function entry(id: string): string {
+  const dow = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'] as const
+  const fom = moment(id, 'YYYYMM')
+  const n = fom.daysInMonth()
+  let w = Number.parseInt(fom.format('d'), 10)
   let content = `---
 id: ${id}
 created_at:
 modified_at:
 ---
 `
-  const m = moment(id, 'YYYYMM')
-  const n = m.daysInMonth()
-  let w = Number.parseInt(m.format('d'), 10)
   for (let i = 1; i <= n; i++) {
     const dd = i.toString().padStart(2, '0')
-    const ddd = DDD[w]
+    const ddd = dow[w]
     content += `
 ###### ${id}${dd}${ddd}
 

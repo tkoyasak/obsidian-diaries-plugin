@@ -1,21 +1,21 @@
 import { Plugin } from 'obsidian'
-import { NewNotes } from './features/new-notes.ts'
+import { Entries } from './features/entries.ts'
 import { DEFAULT_SETTINGS, Settings } from './settings.ts'
 import { SettingTab } from './ui/setting-tab.ts'
 
 export default class ObsidianPlugin extends Plugin {
-  settings!: Settings
-  newNotes!: NewNotes
+  private settings!: Settings
+  private entries!: Entries
 
-  public override async onload() {
+  public override async onload(): Promise<void> {
     this.settings = await this.loadSettings()
+    this.entries = new Entries(this.app, this.settings)
 
-    this.newNotes = new NewNotes(this.app, this.settings)
     this.addCommand({
-      id: 'create-new-note',
-      name: 'Create New Note',
+      id: 'create-new-entry',
+      name: 'Create New Entry',
       callback: async () => {
-        await this.newNotes.createNewNote()
+        await this.entries.createNewEntry()
       },
     })
 
