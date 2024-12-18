@@ -3,5 +3,5 @@ export type Settings = {
 }
 
 export const DEFAULT_SETTINGS: Settings = {
-  newEntriesFolder: '',
+  newEntriesFolder: 'entries',
 } as const
