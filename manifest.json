@@ -1,8 +1,9 @@
 {
-  "id": "obsidian-diary-plugin",
-  "name": "Obsidian Diary Plugin",
+  "id": "obsidian-diaries-plugin",
+  "name": "*******",
+  "description": "Obsidian plugin for personal use.",
+  "author": "tkoyasak",
   "version": "0.0.0",
   "minAppVersion": "1.7.2",
-  "description": "Obsidian plugin for personal use.",
   "isDesktopOnly": true
 }

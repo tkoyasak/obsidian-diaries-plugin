@@ -1,0 +1,21 @@
+{
+  "name": "obsidian-diaries-plugin",
+  "description": "Obsidian plugin for personal use.",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "bun ./scripts/esbuild.config.mts",
+    "build": "bun ./scripts/esbuild.config.mts prod",
+    "format": "biome format --write",
+    "lint": "biome lint"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.10.2",
+    "esbuild": "^0.24.2",
+    "obsidian": "^1.7.2",
+    "typescript": "^5.7.2"
+  },
+  "volta": {
+    "node": "20.18.0"
+  }
+}

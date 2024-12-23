@@ -1,7 +1,8 @@
 import * as esbuild from 'esbuild'
 import { builtinModules } from 'node:module'
+import { argv } from 'node:process'
 
-const prod = Deno.args[0] === 'prod'
+const prod = argv[2] === 'prod'
 const smap = prod ? false : 'inline'
 
 const context = await esbuild.context({
@@ -10,7 +11,7 @@ const context = await esbuild.context({
   minify: prod,
   sourcemap: smap,
   format: 'cjs',
-  target: 'esnext',
+  target: 'es2023',
   logLevel: 'info',
   entryPoints: ['./src/main.ts'],
   outfile: './dist/main.js',
@@ -41,7 +42,6 @@ const context = await esbuild.context({
 if (prod) {
   await context.rebuild()
   await context.dispose()
-  Deno.exit(0)
 } else {
   await context.watch()
 }
