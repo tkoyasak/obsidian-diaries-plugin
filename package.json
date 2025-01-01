@@ -8,6 +8,9 @@
     "format": "biome format --write",
     "lint": "biome lint"
   },
+  "dependencies": {
+    "neverthrow": "^8.1.1"
+  },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.10.2",
