@@ -2,6 +2,6 @@ export type Settings = {
   newEntriesFolder: string
 }
 
-export const DEFAULT_SETTINGS: Settings = {
+export const defaultSettings: Settings = {
   newEntriesFolder: 'entries',
 } as const

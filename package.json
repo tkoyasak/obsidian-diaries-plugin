@@ -1,14 +1,12 @@
 {
   "name": "obsidian-diaries-plugin",
   "description": "Obsidian plugin for personal use.",
+  "type": "module",
   "main": "dist/main.js",
-  "scripts": {
-    "dev": "bun ./scripts/esbuild.config.mts",
-    "build": "bun ./scripts/esbuild.config.mts prod",
-    "format": "biome format --write",
-    "lint": "biome lint"
-  },
   "dependencies": {
+    "@codemirror/commands": "^6.7.1",
+    "@codemirror/merge": "^6.8.0",
+    "@codemirror/search": "^6.5.8",
     "neverthrow": "^8.1.1"
   },
   "devDependencies": {
@@ -23,5 +21,11 @@
   },
   "volta": {
     "node": "20.18.0"
+  },
+  "scripts": {
+    "dev": "bun ./scripts/esbuild.config.mts",
+    "build": "bun ./scripts/esbuild.config.mts prod",
+    "format": "biome format --write",
+    "lint": "biome lint"
   }
 }

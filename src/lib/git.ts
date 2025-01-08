@@ -46,17 +46,10 @@ const exec = fromAsyncThrowable(
 const noop = () => {}
 
 /**
- * `git pull origin main`
+ * `git add [--update] <path>`
  */
-export function pull() {
-  return exec(['pull', 'origin', 'main']).map(noop)
-}
-
-/**
- * `git push origin main`
- */
-export function push() {
-  return exec(['push', 'origin', 'main']).map(noop)
+export function add(path: string, update?: boolean) {
+  return exec(update ? ['add', '--update', path] : ['add', path]).map(noop)
 }
 
 /**
@@ -83,10 +76,17 @@ export function diffFiles(cached?: boolean) {
 }
 
 /**
- * `git add [--update] <path>`
+ * `git pull origin main`
  */
-export function add(path: string, update?: boolean) {
-  return exec(update ? ['add', '--update', path] : ['add', path]).map(noop)
+export function pull() {
+  return exec(['pull', 'origin', 'main']).map(noop)
+}
+
+/**
+ * `git push origin main`
+ */
+export function push() {
+  return exec(['push', 'origin', 'main']).map(noop)
 }
 
 /**
@@ -99,13 +99,19 @@ export function restore(path: string, cached?: boolean) {
 }
 
 /**
+ * `git show <hash>:<path>`
+ */
+export function show(hash: string, path: string) {
+  return exec(['show', `${hash}:${path}`])
+}
+
+/**
  * `git hash-object -w --stdin <path>`
  * `git update-index --cacheinfo 100644 <hash> <path>`
  */
 export function stage(path: string, data: string) {
   return exec(['hash-object', '-w', '--stdin', path], data)
     .andThen((hash) =>
-      // `update-index --cacheinfo` requests args in the following order: mode, hash, path
       exec(['update-index', '--cacheinfo', '100644', hash, path]),
     )
     .map(noop)
