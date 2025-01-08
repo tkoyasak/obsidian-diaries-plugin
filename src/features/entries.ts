@@ -1,6 +1,5 @@
-import moment from 'moment'
 import { err, ok } from 'neverthrow'
-import { type App, Notice, normalizePath } from 'obsidian'
+import { type App, Notice, normalizePath, moment } from 'obsidian'
 import { add, commit, diffFiles, push } from '../lib/git.ts'
 import type { Settings } from '../settings.ts'
 

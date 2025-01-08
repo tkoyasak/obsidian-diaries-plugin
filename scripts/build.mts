@@ -29,7 +29,6 @@ const options = {
     '@lezer/highlight',
     '@lezer/lr',
     'electron',
-    'moment',
     'obsidian',
     ...modules.builtinModules,
   ],

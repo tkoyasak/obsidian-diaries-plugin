@@ -1,7 +1,18 @@
 diff --git a/obsidian.d.ts b/obsidian.d.ts
-index 09a685dcd3824dc821fc8c3f0d9d0cf757747404..c5020b44a7a1e97dc65974e0adc0db88624c413b 100644
+index 09a685dcd3824dc821fc8c3f0d9d0cf757747404..7e916f74017cf42eace856a2d7422bf66156f6fb 100644
 --- a/obsidian.d.ts
 +++ b/obsidian.d.ts
+@@ -5,8 +5,8 @@
+ 
+ import { Extension, StateField } from '@codemirror/state';
+ import { EditorView, ViewPlugin } from '@codemirror/view';
+-import * as CodeMirror from 'codemirror';
+-import * as Moment from 'moment';
++import CodeMirror from 'codemirror';
++import Moment from 'moment';
+ 
+ declare global {
+     interface ObjectConstructor {
 @@ -4236,7 +4236,7 @@ export class Vault extends Events {
      /**
       * @public
