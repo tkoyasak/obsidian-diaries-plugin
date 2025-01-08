@@ -23,8 +23,8 @@
     "node": "20.18.0"
   },
   "scripts": {
-    "dev": "bun ./scripts/esbuild.config.mts",
-    "build": "bun ./scripts/esbuild.config.mts prod",
+    "dev": "bun ./scripts/build.mts",
+    "build": "bun ./scripts/build.mts prod",
     "format": "biome format --write",
     "lint": "biome lint"
   }
